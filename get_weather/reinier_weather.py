@@ -2,14 +2,22 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-page = requests.get("https://meteo.gc.ca/city/pages/qc-147_metric_f.html")
+page = requests.get("http://www.cbc.ca/montreal/weather/s0000635.html")
 soup = BeautifulSoup(page.content, 'html.parser')
 #print(soup)
 
-seven_day = soup.find('table', class_="table-condensed")
-forecast_items = seven_day.find_all('p', class_="mrgn-bttm-0")
-period = seven_day.find_all('th')
+summary = soup.find('div', id="wt-right")
 
-#print(seven_day)
-#print(forecast_items)
-print(period)
+period_tags = summary.select("div h3")
+periods = [pt.get_text() for pt in period_tags]
+short_descs =  summary.select("div p")
+description = [summary.find("span", class_="wt-subtitle celsius").get_text()] + [sd.get_text() for sd in short_descs]
+
+print(periods)
+print(description)
+
+weather = pd.DataFrame({
+        "short_desc": description,
+        "period": periods
+    })
+print(weather)
