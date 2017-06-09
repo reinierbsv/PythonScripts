@@ -10,6 +10,7 @@ summary = soup.find('div', id="wt-right")
 
 period_tags = summary.select("div h3")
 periods = [pt.get_text() for pt in period_tags]
+periods[0] = ""
 short_descs =  summary.select("div p")
 description = [summary.find("span", class_="wt-subtitle celsius").get_text()] + [sd.get_text() for sd in short_descs]
 
