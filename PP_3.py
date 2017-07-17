@@ -20,4 +20,4 @@ print(b)
 #extras
 print([a for a in A if a < 5])
 num = input("Enter a number to filter: ")
-print([a for a in A if a < num])
+print([a for a in A if a < int(num)])
