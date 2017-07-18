@@ -17,46 +17,46 @@ while i == 1:
         if ans == "Y":
             i = 1
         else:
-            i = 2
+            i = 0
     elif ply_1 == "P" and ply_2 == "S":
         print("Player 2 wins")
         ans = input("Would you like to play again, Y:Yes or N:No")
         if ans == "Y":
             i = 1
         else:
-            i = 2
+            i = 0
     elif ply_1 == "R" and ply_2 == "P":
         print("Player 2 wins")
         ans = input("Would you like to play again, Y:Yes or N:No")
         if ans == "Y":
             i = 1
         else:
-            i = 2
+            i = 0
     elif ply_1 == "R" and ply_2 == "S":
         print("Player 1 wins")
         ans = input("Would you like to play again, Y:Yes or N:No")
         if ans == "Y":
             i = 1
         else:
-            i = 2
+            i = 0
     elif ply_1 == "S" and ply_2 == "P":
         print("Player 1 wins")
         ans = input("Would you like to play again, Y:Yes or N:No")
         if ans == "Y":
             i = 1
         else:
-            i = 2
+            i = 0
     elif ply_1 == "S" and ply_2 == "R":
         print("Player 2 wins")
         ans = input("Would you like to play again, Y:Yes or N:No")
         if ans == "Y":
             i = 1
         else:
-            i = 2
+            i = 0
     else:
         print("Null game")
         ans = input("Would you like to play again, Y:Yes or N:No")
         if ans == "Y":
             i = 1
         else:
-            i = 2
+            i = 0
