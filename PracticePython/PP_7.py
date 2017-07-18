@@ -4,6 +4,3 @@ Write one line of Python that takes this list a and makes a new list that has on
 '''
 A = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 B = [a for a in A if a % 2 == 0]; print(B)
-
-
-
