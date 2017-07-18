@@ -15,7 +15,7 @@ i = 1
 c = 0
 while i == 1:
     ans = input("Enter your guess: ")
-    c = c + 1
+    c += 1
     if ans == 'exit':
         i = 0
         print("God Bye!")
