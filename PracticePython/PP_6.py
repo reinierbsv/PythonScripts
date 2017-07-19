@@ -1,7 +1,7 @@
-'''
+"""
 Ask the user for a string and print out whether this string is a palindrome or not.
 (A palindrome is a string that reads the same forwards and backwards.)
-'''
+"""
 a = input("Enter a word to verify if it is a palindrome or not: ")
 if len(a) % 2 == 0:
     print(a, "is not a palindrome")
