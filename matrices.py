@@ -1,6 +1,6 @@
 def mult_matrix(__name1__, __name2__):
     C, D = [], []
-    (i, j, k) = (0, 0, 0)
+    i, j, k = 0, 0, 0
     Alen = len(__name1__[0][:])
     Blen = len(__name2__)
     if Alen == Blen:
