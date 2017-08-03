@@ -10,16 +10,15 @@ The sequence looks like this: 1, 1, 2, 3, 5, 8, 13, etc.)
 def fibonnaci(n):
     a = [1]
     x = 0
-    if n > 2:
-        a = [1, 1]
-        for i in range(1, n-1):
-            x = a[i-1] + a[i]
-            a.append(x)
-    elif n == 1:
+    if n == 1:
         a = [1]
     elif n == 2:
         a = [1, 1]
-    print a
+    elif n > 2:
+        a = [1, 1]
+        for i in range(1, n-1):
+            a.append(a[i-1] + a[i])
+    return a
 
 
 n = input("Enter how many Fibonnaci sequence number you want to generate: ")
