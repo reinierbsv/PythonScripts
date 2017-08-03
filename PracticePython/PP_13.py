@@ -22,4 +22,4 @@ def fibonnaci(n):
 
 
 n = input("Enter how many Fibonnaci sequence number you want to generate: ")
-fibonnaci(n)
+print(fibonnaci(n))
