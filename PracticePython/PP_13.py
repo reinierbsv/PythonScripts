@@ -8,8 +8,6 @@ The sequence looks like this: 1, 1, 2, 3, 5, 8, 13, etc.)
 
 
 def fibonnaci(n):
-    a = [1]
-    x = 0
     if n == 1:
         a = [1]
     elif n == 2:
