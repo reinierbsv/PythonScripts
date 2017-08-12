@@ -11,11 +11,17 @@ quote_page = 'https://www.nytimes.com'
 # query the website and return the html to the variable 'page'
 page = urlopen(quote_page)
 
-# parse the html using beautiful soap and store in variable `soup`
-soup = BeautifulSoup(page, 'html.parser')
+# parse the html using beautiful soap with lxml parser and store in variable `soup`
+soup = BeautifulSoup(page, 'lxml')
 
-head = soup.find_all(class_='story-heading')
-headings = [h.get_text() for h in head]
+# finding the content we're interest in. This create a 'list object' stored in  variable 'head'
+head = soup.find_all('h2', class_="story-heading")
+by = soup.find_all('p', class_='byline')
+
+# getting the text from each elements of the list object 'head'
+headings = [h.get_text(strip=True).strip() for h in head]
+
+# creates a pandas table and print it
 titles = pd.DataFrame({
         "Headlines": headings
     })
