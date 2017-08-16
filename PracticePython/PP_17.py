@@ -1,3 +1,10 @@
+# import libraries
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+from IPython.display import HTML
+import pandas as pd
+
+
 # specify the url
 quote_page = 'https://www.nytimes.com'
 
