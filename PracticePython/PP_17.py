@@ -1,10 +1,3 @@
-# import libraries
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
-import pandas as pd
-import csv
-
-
 # specify the url
 quote_page = 'https://www.nytimes.com'
 
@@ -14,15 +7,22 @@ page = urlopen(quote_page)
 # parse the html using beautiful soap with lxml parser and store in variable `soup`
 soup = BeautifulSoup(page, 'lxml')
 
-# finding the content we're interest in. This create a 'list object' stored in  variable 'head'
-head = soup.find_all('h2', class_="story-heading")
-by = soup.find_all('p', class_='byline')
+# finding the content we're interest in. This create a 'list object' stored in  variable 'article'
+article = soup.find_all('article', class_="story theme-summary")
+heading = []
+byline = []
 
-# getting the text from each elements of the list object 'head'
-headings = [h.get_text(strip=True).strip() for h in head]
+# getting the text from each elements of the list object 'article'
+for author in article:
+    if author.find(class_='byline'):
+        byline.append(author.find(class_='byline').get_text())
+for head in article:
+    if head.find(class_='byline'):
+        heading.append(head.find(class_='story-heading').get_text(strip=True))
 
-# creates a pandas table and print it
+# creates a pandas table
 titles = pd.DataFrame({
-        "Headlines": headings
+        "Headlines": heading,
+        "By": byline
     })
-print(titles)
+HTML(titles.to_html(classes=[table-striped, table-hover, border-collapse:colapse]))
