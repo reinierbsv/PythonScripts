@@ -20,31 +20,20 @@ def elmsearch(a, num):
 
 def binarysearch(a, num):
     key = False
-    if num == a[0] or num == a[len(a) - 1]:
-        key = True
-    else:
-        pmin = 1
-        pmax = len(a) - 2
-        p = int((pmax - pmin) / 2)
-        while key is False:
-            if int((pmax - pmin) / 2) == 0:
-                break
-            elif num == a[p]:
-                key = True
-            elif num > a[p]:
-                pmin = p + 1
-                p = pmax - int((pmax - pmin) / 2)
-                if num == a[p]:
-                    key = True
-            else:
-                pmax = p - 1
-                p = pmin + int((pmax - pmin) / 2)
-                if num == a[p]:
-                    key = True
+    pmin = 0
+    pmax = len(a) - 1
+    while key is False and pmin <= pmax:
+        p = int((pmax + pmin) / 2)
+        if num == a[p]:
+            key = True
+        elif num > a[p]:
+            pmin = p + 1
+        else:
+            pmax = p - 1
     return key
 
 a = [1, 3, 8, 15, 68, 78, 99, 124, 147]
-num = 100
+num = 200
 
 print(elmsearch(a, num))
 print(binarysearch(a, num))
